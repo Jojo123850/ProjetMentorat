@@ -54,9 +54,27 @@ const youIcon = L.divIcon({
 L.marker([ME.lat, ME.lng], { icon: youIcon, zIndexOffset: 1000 })
   .addTo(map)
   .bindTooltip('Vous', { permanent: false, offset: [10, 0] });
+
+
 // UTILITAIRE
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2
+          + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+ 
+function initials(prenom, nom) {
+  return ((prenom?.[0] || '') + (nom?.[0] || '')).toUpperCase();
+}
+ 
+function colorLight(hex) { return hex + '22'; }
 // FILTRES
 // RENDU
+
+
 // FORMULAIRE
 const bouton2 = document.getElementById('btn-cancel');
 

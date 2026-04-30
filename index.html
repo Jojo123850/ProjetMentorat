@@ -8,35 +8,18 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-
-
- <div id="map"></div>
-
-<div class="divForm">
-
-    <h1>Rejoindre la communauté</h1>
-    <form action="#" method="post">
-        <label for="nom" >Nom :</label>
-        <input type="text" name="nom" id="f-nom" placeholder="Votre nom">
-        <label for="text">Ville</label>
-        <input id="f-adress" type="text"placeholder="Paris,....">
-    
-        <div class="form-group">
-        <label>Profession</label>
-        <select id="f-prof">
-            <option value="">-- Choisir --</option>
-            <option>Designer UX</option>
-            <option>Développeur</option>
-            <option>Marketing</option>
-            <option>Consultant</option>
-            <option>Photographe</option>
-        </select>
+    <header>
+         <div class="header-desc">
+            <p>Retrouvez les professions des personnes de votre ville parmi toutes les communes
+            de France métropolitaine</p>
         </div>
-        <button type="button" id="btn-submit">S'inscrire</button>
-        <button type="button" id="btn-cancel">Annnuler</button>
-    </form> 
-</div>
+        <div>
+          <a href="create.html">S'inscrire</a>
+        </div>
+    </header>
+    <div id="map"></div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>
+
