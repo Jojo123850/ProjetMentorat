@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription d'un utilisateur</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-<div>
-    <button id="btn-open-form">S'inscrire</button>
-</div>
+
 
  <div id="map"></div>
 
@@ -33,9 +32,11 @@
             <option>Photographe</option>
         </select>
         </div>
-        <button id="btn-submit">S'inscrire</button>
-        <button id="btn-cancel">Annnuler</button>
+        <button type="button" id="btn-submit">S'inscrire</button>
+        <button type="button" id="btn-cancel">Annnuler</button>
     </form> 
 </div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

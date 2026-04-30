@@ -58,15 +58,17 @@ L.marker([ME.lat, ME.lng], { icon: youIcon, zIndexOffset: 1000 })
 // FILTRES
 // RENDU
 // FORMULAIRE
+const bouton2 = document.getElementById('btn-cancel');
 
-await saveUsers(latest)
-document.addEventListener('btn-submit')('click', () => {
-    document.getElementById('divForm').classList.add('open');
-})
+bouton2.addEventListener('click', () => {
+    document.querySelector('.divForm').classList.remove('open');
+});
 
-const bouton = document.getElementById('btn-submit')
+
+const bouton = document.getElementById('btn-submit');
+
 bouton.addEventListener('click',async(e)=> {
-    e.preventdefault();
+        e.preventDefault();
     const prenom = document.getElementById('f-nom').value.trim()
     const adress = document.getElementById('f-adress').value.trim()
     const prof = document.getElementById('f-prof').value;
@@ -75,26 +77,25 @@ bouton.addEventListener('click',async(e)=> {
     if(!prenom || !adress || !prof){
         alert ("Tous les champs doivent etre remplis")
             return
-    }
+    };
     
     const coords = await geolocalisation(adress)
     if(!coords){
-            alert("Ville intouvale")
+            alert("Ville intouvable")
                 return
-    }
+    };
+
     const newUser = { id: Date.now(), prenom, adress, prof, lat: coords.lat, lng: coords.lng }
     const latest = await loadUsers()
     latest.push(newUser)
     await saveUsers(latest)
-
-
+    
+    
     alert("Enregistrement fait avec succès")
+    
+    })
 
-})
 
 
-
-const bouton2 = document.getElementById('btn-cancel')
- document.getElementById('divForm').classList.remove('open');
 
 // INIT
