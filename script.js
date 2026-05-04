@@ -37,11 +37,11 @@ async function geolocalisation(ville) {
 // CARTE
 const map = L.map('map', { zoomControl: false }).setView([ME.lat, ME.lng], 6);
  
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap',
-  maxZoom: 18,
-}).addTo(map);
- 
+ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      maxZoom: 19
+  }).addTo(map);
+
 L.control.zoom({ position: 'bottomright' }).addTo(map);
  
 // Point "Vous"
@@ -113,7 +113,10 @@ bouton.addEventListener('click',async(e)=> {
     
     })
 
+// const annuler = document.getElementById('btn-cancel');
+
+// annuler.addEventListener('click', () => {
+//   window.location.href = "index.html";
+// })
 
 
-
-// INIT

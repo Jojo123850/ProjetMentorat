@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root{
+  --color1:#5B374D;
+  --color2:#FBF0E9;
+  --color3:#37463D;
+  --color4: #F3BB00;
+}
+#section1{
+    max-width: 700px;
+    height: 400px;
+    margin: auto;
+    background-image:url(../img/backiMG.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    border-radius: 20px;
+    border-color: var(--color1);
+    
+}
+#section1 .divForm{
+    padding: 20px;
+    margin-top: 100px;
+
+}
+h1,p, ::placeholder{
+    color: var(--color2);
+
+}
+h1{
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+}
+p,a ::placeholder{
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  color: var(--color4);
+  padding-top: 20px;
+}
+form{
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+form div{
+    display: grid;
+}
+label{
+    color: var(--color2);
+    padding-bottom: 5px;
+}
+input,select{
+    color: var(--color3);
+    padding: 12px;
+}
+#btn{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+button{
+    display: block;
+    width: fit-content;
+  background-color: var(--color4);
+  border-color: var(--color4);
+  border-radius: 5px;
+  padding: 6px;
+}
+a{
+    display: block;
+    width: fit-content;
+background-color: var(--color2);
+  border-color: var(--color4);
+  border-radius: 5px;
+  padding: 6px;
+  text-decoration: none;
+  color: black;
+
+}
