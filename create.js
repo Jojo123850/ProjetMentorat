@@ -32,11 +32,12 @@ async function geolocalisation(ville) {
 
 document.getElementById('btn-submit').addEventListener('click', async (e) => {
     e.preventDefault();
-    const prenom = document.getElementById('f-nom').value.trim();
+    const nom = document.getElementById('f-nom').value.trim();
     const address = document.getElementById('f-adress').value.trim();
     const prof = document.getElementById('f-prof').value;
 
-    if (!prenom || !address || !prof) {
+    // ✅ Correction : "prenom" → "nom"
+    if (!nom || !address || !prof) {
         alert("Tous les champs doivent être remplis");
         return;
     }
@@ -47,11 +48,18 @@ document.getElementById('btn-submit').addEventListener('click', async (e) => {
         return;
     }
 
-    const newUser = { id: Date.now(), prenom, address, prof, lat: coords.lat, lng: coords.lng };
+    const newUser = { id: Date.now(), nom, address, prof, lat: coords.lat, lng: coords.lng };
 
     const latest = await loadUsers();
     latest.push(newUser);
     await saveUsers(latest);
 
     alert("Enregistrement fait avec succès !");
+
+
+    const profil = { nom, address, prof };
+    localStorage.setItem('profil', JSON.stringify(profil));
+
+    // Redirection vers la page profil
+    window.location.href = 'accueil.html';
 });
