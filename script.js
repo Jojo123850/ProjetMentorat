@@ -15,7 +15,7 @@ async function loadUsers() {
 }
     
 async function saveUsers(updateUsers) {
-        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/`, {
+        await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         method:'PUT',
         headers: {
             'X-Master-Key': API_KEY ,
@@ -88,23 +88,25 @@ const bouton = document.getElementById('btn-submit');
 bouton.addEventListener('click',async(e)=> {
         e.preventDefault();
     const prenom = document.getElementById('f-nom').value.trim()
-    const adress = document.getElementById('f-adress').value.trim()
+    const address = document.getElementById('f-adress').value.trim()
     const prof = document.getElementById('f-prof').value;
     const btn = document.getElementById('btn-submit');
     
-    if(!prenom || !adress || !prof){
+    if(!prenom || !address || !prof){
         alert ("Tous les champs doivent etre remplis")
             return
     };
     
-    const coords = await geolocalisation(adress)
+    const coords = await geolocalisation(address)
     if(!coords){
             alert("Ville intouvable")
                 return
-    };
+    }
 
-    const newUser = { id: Date.now(), prenom, adress, prof, lat: coords.lat, lng: coords.lng }
-    const latest = await loadUsers()
+
+  const newUser = { id: Date.now(), prenom, address, prof, lat: coords.lat, lng: coords.lng }
+
+  const latest = await loadUsers()
     latest.push(newUser)
     await saveUsers(latest)
     
@@ -112,11 +114,5 @@ bouton.addEventListener('click',async(e)=> {
     alert("Enregistrement fait avec succès")
     
     })
-
-// const annuler = document.getElementById('btn-cancel');
-
-// annuler.addEventListener('click', () => {
-//   window.location.href = "index.html";
-// })
 
 
