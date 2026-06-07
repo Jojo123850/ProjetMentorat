@@ -10,3 +10,9 @@ if(profil){
         profil.nom.charAt(0).toUpperCase();
 
 }
+
+const modification = document.getElementById('updat');
+
+modification.addEventListener('click', () => {
+    window.location.href = 'update.html';
+})
