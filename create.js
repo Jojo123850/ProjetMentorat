@@ -60,6 +60,5 @@ document.getElementById('btn-submit').addEventListener('click', async (e) => {
     const profil = { nom, address, prof };
     localStorage.setItem('profil', JSON.stringify(profil));
 
-    // Redirection vers la page profil
     window.location.href = 'accueil.html';
 });

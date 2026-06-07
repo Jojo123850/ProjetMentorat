@@ -3,24 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/accueil.css">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <header>
-        <a href="index.html">Se déconnecter</a>
+        <a class="logout" href="index.html">
+            Se déconnecter
+        </a>
     </header>
+
     <main>
-        <h1>Mon Profil</h1>
 
-        <p>Nom : <span id="affich-nom"></span></p>
-        <p>Ville : <span id="affich-ville"></span></p>
-        <p>Profession : <span id="affich-prof"></span></p>
+        <section class="profile-card">
 
-        <button>Modifier mon profil</button>
-        <a href="index.html">Annuler la modification</a>
+            <div class="avatar">
+                <span id="avatar-letter">G</span>
+            </div>
+
+            <h1>Mon Profil</h1>
+
+            <div class="infos">
+
+                <div class="info">
+                    <label>Nom</label>
+                    <p id="affich-nom"></p>
+                </div>
+
+                <div class="info">
+                    <label>Ville</label>
+                    <p id="affich-ville"></p>
+                </div>
+
+                <div class="info">
+                    <label>Profession</label>
+                    inp
+                    <p id="affich-prof"></p>
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button>Modifier mon profil</button>
+                <a href="index.html">Annuler</a>
+            </div>
+
+        </section>
+
     </main>
-    
+    <script src="accueil.js"></script>
 </body>
-<script src="accueil.js"></script>
+
 </html>

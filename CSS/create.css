@@ -1,95 +1,317 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-:root{
-  --color1:#5B374D;
-  --color2:#FBF0E9;
-  --color3:#37463D;
-  --color4: #F3BB00;
-}
-a{
-    text-decoration: none;
-}
-header{
-    max-width: 990px;
-    margin: auto;
-    padding: 20px;
-}
-#section1{
-    max-width: 700px;
-    height: 500px;
-    margin: auto;
-    background-image:url(../img/backiMG.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: center;
-    border-radius: 20px;
-    border-color: var(--color1);
-    
-}
-#section1 .divForm{
-    padding: 20px;
-    /* margin-top: 100px; */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Playfair+Display:wght@600;700&display=swap');
 
+*, *::before, *::after {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
-h1,p{
-    color: var(--color2);
 
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim:   rgba(201,168,76,0.12);
+  --gold-dim2:  rgba(201,168,76,0.22);
+  --dark-0:     #080c18;
+  --dark-1:     #0d1220;
+  --dark-2:     #151c30;
+  --dark-3:     #1e2740;
+  --cream:      #F5EDD8;
+  --text-muted: rgba(245,237,216,0.45);
+  --glass-bg:   rgba(13,18,32,0.85);
+  --glass-border: rgba(201,168,76,0.22);
+  --radius-sm:  10px;
+  --radius:     16px;
+  --radius-lg:  24px;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
-::placeholder{
-    color: var(--color3);
+
+/* ── BASE ──────────────────────────────────────────────── */
+
+html, body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 100%, rgba(30,40,60,0.9) 0%, transparent 70%),
+    var(--dark-0);
 }
-h1{
-  font-family: "Roboto", sans-serif;
-  font-size: 22px;
+
+a { text-decoration: none; }
+
+/* ── HEADER ────────────────────────────────────────────── */
+
+header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 32px;
 }
-p,a ::placeholder{
-  font-family: "Open Sans",sans-serif;
+
+header a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--gold-light);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+header a:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  transform: translateX(-2px);
+}
+
+/* ── MAIN ──────────────────────────────────────────────── */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 60px;
+}
+
+/* ── SECTION / CARD ────────────────────────────────────── */
+
+#section1 {
+  width: 100%;
+  max-width: 520px;
+}
+
+.divForm {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 48px 44px;
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px rgba(201,168,76,0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow in top-right */
+.divForm::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── HEADINGS ──────────────────────────────────────────── */
+
+.divForm h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.divForm > p:first-of-type {
   font-size: 14px;
-  color: var(--color4);
-  padding-top: 20px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 36px;
 }
-form{
-    padding-top: 20px;
-    justify-content: center;
-    align-items: center;
 
-}
-form div{
-    display: grid;
-}
-label{
-    color: var(--color2);
-    padding-bottom: 5px;
-}
-input,select{
-    color: var(--color3);
-    padding: 12px;
-}
-#btn{
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-button{
-    display: block;
-    width: fit-content;
-  background-color: var(--color4);
-  border-color: var(--color4);
-  border-radius: 5px;
-  padding: 6px;
-}
-.cancel{
-    display: block;
-    width: fit-content;
-background-color: var(--color2);
-  border-color: var(--color4);
-  border-radius: 5px;
-  padding: 6px;
-  text-decoration: none;
-  color: black;
+/* ── DIVIDER ───────────────────────────────────────────── */
 
+.divForm h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* ── FORM ──────────────────────────────────────────────── */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+form > div:not(.form-group):not(#btn) {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── LABELS ────────────────────────────────────────────── */
+
+label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+/* ── INPUTS ────────────────────────────────────────────── */
+
+input, select {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--cream);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+input:hover, select:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(255,255,255,0.06);
+}
+
+input:focus, select:focus {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+
+/* Select arrow */
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C9A84C' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+}
+
+select option {
+  background: var(--dark-2);
+  color: var(--cream);
+}
+
+/* ── FORM GROUP ────────────────────────────────────────── */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── BUTTONS ───────────────────────────────────────────── */
+
+#btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+button#btn-submit {
+  flex: 1;
+  padding: 14px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--dark-0);
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+}
+
+button#btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(201,168,76,0.35);
+  filter: brightness(1.08);
+}
+
+button#btn-submit:active {
+  transform: translateY(0);
+}
+
+.cancel {
+  flex: 0;
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.cancel:hover {
+  color: var(--cream);
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── FOOTER LINK ───────────────────────────────────────── */
+
+.divForm > p:last-child {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.divForm > p:last-child a {
+  color: var(--gold-light);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.divForm > p:last-child a:hover {
+  border-bottom-color: var(--gold-light);
+}
+
+
+@media (max-width: 560px) {
+  .divForm {
+    padding: 36px 24px;
+  }
+
+  .divForm h1 {
+    font-size: 24px;
+  }
+
+  #btn {
+    flex-direction: column;
+  }
+
+  .cancel {
+    width: 100%;
+    text-align: center;
+  }
 }

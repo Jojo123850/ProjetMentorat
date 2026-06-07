@@ -53,15 +53,23 @@ async function renderMarkers() {
     users.forEach(u => {
         const icon = L.divIcon({
             className: '',
-            html: `<div class="user-pin" style="background:${u.color || '#4af'}">${initials(u.prenom)}</div>`,
+           html: `<div class="user-pin">
+        ${initials(u.nom)}
+      </div>`,
             iconSize: [32, 32],
             iconAnchor: [16, 16],
         });
 
         const dist = haversine(ME.lat, ME.lng, u.lat, u.lng).toFixed(0);
-        L.marker([u.lat, u.lng], { icon })
-            .addTo(markerLayer)
-            .bindTooltip(`${u.prenom} — ${u.prof}<br>${dist} km`, { permanent: false });
+       L.marker([u.lat, u.lng], { icon })
+.addTo(markerLayer)
+.bindPopup(`
+    <div class="user-card">
+        <h3>${u.nom}</h3>
+        <p>${u.prof}</p>
+        <small>${dist} km</small>
+    </div>
+`);
     });
 }
 
