@@ -1,7 +1,7 @@
 #chat-toggle {
     position: fixed;
     bottom: 28px;
-    right: 28px;
+    right: 16px;
     width: 52px;
     height: 52px;
     border-radius: 50%;
@@ -26,9 +26,12 @@
 #chat-box {
     position: fixed;
     bottom: 92px;
-    right: 28px;
-    width: 300px;
-    height: 380px;
+    right: 16px;
+    left: 16px;
+    max-width: 340px;
+    margin-left: auto;
+    height: 400px;
+    max-height: calc(100vh - 120px);
     background: white;
     border: 1.5px solid #E0DAEA;
     border-radius: 20px;
@@ -133,7 +136,7 @@
 #chat-footer {
     display: flex;
     gap: 8px;
-    padding: 10px 10px;
+    padding: 10px;
     border-top: 1.5px solid #E0DAEA;
     background: white;
     flex-shrink: 0;
@@ -177,4 +180,20 @@
 #chat-send:hover {
     background: #7B5EC8;
     transform: scale(1.08);
+}
+
+@media (max-width: 480px) {
+    #chat-box {
+        left: 12px;
+        right: 12px;
+        max-width: 100%;
+        bottom: 88px;
+        height: 360px;
+        max-height: calc(100vh - 110px);
+    }
+
+    #chat-toggle {
+        right: 12px;
+        bottom: 20px;
+    }
 }

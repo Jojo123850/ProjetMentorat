@@ -1,5 +1,5 @@
 const BIN_ID_CHAT = '6a258b80f5f4af5e29c6b818';
-const API_KEY = '$2a$10$hEVISQNvdU7ELl6YsLTVfekgTlospG0OV6ztwuVr/R/Wp.Nw5nZzW';
+const API_KEY_CHAT = '$2a$10$hEVISQNvdU7ELl6YsLTVfekgTlospG0OV6ztwuVr/R/Wp.Nw5nZzW';
 
 const profilChat = JSON.parse(localStorage.getItem('profil'));
 const pseudo = profilChat?.pseudo || profilChat?.nom || 'Anonyme';
@@ -9,7 +9,7 @@ let lastCount = 0;
 
 async function loadMessages() {
     const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID_CHAT}/latest`, {
-        headers: { 'X-Master-Key': API_KEY }
+        headers: { 'X-Master-Key': API_KEY_CHAT }
     });
     const data = await res.json();
     const msgs = Array.isArray(data.record) ? data.record : [];
@@ -20,7 +20,7 @@ async function saveMessages(msgs) {
     await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID_CHAT}`, {
         method: 'PUT',
         headers: {
-            'X-Master-Key': API_KEY,
+            'X-Master-Key': API_KEY_CHAT,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(msgs)
@@ -89,6 +89,15 @@ document.getElementById('chat-toggle').addEventListener('click', () => {
     document.getElementById('chat-toggle').textContent = isOpen ? '✕' : '💬';
     if (isOpen) refresh();
 });
+
+if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+        const box = document.getElementById('chat-box');
+        const gap = window.innerHeight - window.visualViewport.height;
+        box.style.bottom = (gap + 92) + 'px';
+        document.getElementById('chat-messages').scrollTop = 99999;
+    });
+}
 
 refresh();
 setInterval(refresh, 4000);
