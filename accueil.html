@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/accueil.css">
+    <link rel="stylesheet" href="CSS/chat.css">
     <title>Document</title>
 </head>
 <body>
@@ -51,6 +52,19 @@
 
     </main>
     <script src="accueil.js"></script>
+    <button id="chat-toggle">💬</button>
+
+<div id="chat-box">
+    <div id="chat-header">
+        <span>💬</span> Tchat communauté
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-footer">
+        <input id="chat-input" type="text" placeholder="Écris un message...">
+        <button id="chat-send">➤</button>
+    </div>
+</div>
+<script src="chat.js"></script>
 </body>
 
 </html>

@@ -32,12 +32,12 @@ async function geolocalisation(ville) {
 
 document.getElementById('btn-submit').addEventListener('click', async (e) => {
     e.preventDefault();
-    const nom = document.getElementById('f-nom').value.trim();
+    const nom    = document.getElementById('f-nom').value.trim();
+    const pseudo = document.getElementById('f-pseudo').value.trim();
     const address = document.getElementById('f-adress').value.trim();
-    const prof = document.getElementById('f-prof').value;
+    const prof   = document.getElementById('f-prof').value;
 
-    // ✅ Correction : "prenom" → "nom"
-    if (!nom || !address || !prof) {
+    if (!nom || !pseudo || !address || !prof) {
         alert("Tous les champs doivent être remplis");
         return;
     }
@@ -48,7 +48,7 @@ document.getElementById('btn-submit').addEventListener('click', async (e) => {
         return;
     }
 
-    const newUser = { id: Date.now(), nom, address, prof, lat: coords.lat, lng: coords.lng };
+    const newUser = { id: Date.now(), nom, pseudo, address, prof, lat: coords.lat, lng: coords.lng };
 
     const latest = await loadUsers();
     latest.push(newUser);
@@ -56,8 +56,7 @@ document.getElementById('btn-submit').addEventListener('click', async (e) => {
 
     alert("Enregistrement fait avec succès !");
 
-
-    const profil = { nom, address, prof };
+    const profil = { nom, pseudo, address, prof };
     localStorage.setItem('profil', JSON.stringify(profil));
 
     window.location.href = 'accueil.html';
